@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap');
+@import "tailwindcss";
+
+:root {
+  --ivory: #FAFAF7;
+  --ivory-dark: #F0EFE8;
+  --royal-blue: #1B3A7A;
+  --royal-blue-light: #2B5099;
+  --royal-blue-deep: #0F2554;
+  --gold: #C9993A;
+  --gold-light: #E8B84B;
+  --gold-pale: #F5E6C4;
+  --crimson: #8B1A2E;
+  --crimson-light: #A82038;
+  --text-dark: #1A1A1A;
+  --text-mid: #4A4A4A;
+  --text-light: #7A7A7A;
+  --border: #E2DDD0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--ivory);
+  color: var(--text-dark);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Cormorant Garamond', serif;
+  line-height: 1.2;
+}
+
+.float-btn {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.float-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
