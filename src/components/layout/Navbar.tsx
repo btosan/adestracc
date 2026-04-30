@@ -29,7 +29,7 @@ export default function Navbar() {
   return (
     <>
       {/* Top bar */}
-      <div className="hidden md:block bg-[var(--royal-blue-dark)] text-white/80 text-xs py-2">
+      <div className="hidden md:block bg-(--royal-blue-dark) text-white/80 text-xs py-2">
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           <span className="font-display tracking-widest text-[10px] text-[var(--gold-bright)]">
             ASSOCIATION OF DELTA STATE TRADITIONAL COUNCIL OF CHIEFS
