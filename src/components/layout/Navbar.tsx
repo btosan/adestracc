@@ -52,19 +52,19 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative">
-              <div className="w-12 h-12 rounded-full bg-[var(--royal-blue)] flex items-center justify-center border-2 border-[var(--gold)] group-hover:border-[var(--gold-bright)] transition-colors">
+              <div className="w-12 h-12 rounded-full bg-(--royal-blue) flex items-center justify-center border-2 border-[var(--gold)] group-hover:border-[var(--gold-bright)] transition-colors">
                 <span className="font-display text-white font-bold text-sm">AD</span>
               </div>
-              <div className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-[var(--crimson)] border border-white" />
+              <div className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-(--crimson) border border-white" />
             </div>
             <div>
               <div className={`font-display font-bold text-sm tracking-wide leading-tight ${
-                isScrolled || !isHome ? 'text-[var(--royal-blue)]' : 'text-white'
+                isScrolled || !isHome ? 'text-(--royal-blue)' : 'text-white'
               }`}>
                 ADESTRACC
               </div>
               <div className={`text-[9px] tracking-wider font-medium ${
-                isScrolled || !isHome ? 'text-[var(--gold)]' : 'text-[var(--gold-bright)]'
+                isScrolled || !isHome ? 'text-(--gold)' : 'text-(--gold-bright)'
               }`}>
                 DELTA STATE CHIEFS
               </div>

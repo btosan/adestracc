@@ -54,7 +54,7 @@ const HOW_WE_WORK = [
 
 export default function ProcessPage() {
   return (
-    <div style={{ paddingTop: '80px' }}>
+    <div style={{ paddingTop: '65px' }}>
 
       {/* Hero */}
       <section style={{

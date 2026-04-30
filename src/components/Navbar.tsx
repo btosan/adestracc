@@ -11,10 +11,17 @@ const navLinks = [
   { href: '/contact', label: 'Contact' },
 ];
 
+// Only the homepage gets the transparent → solid scroll transition.
+// Every other page starts solid royal blue immediately.
+const TRANSPARENT_PAGES = ['/'];
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  const isHomePage = TRANSPARENT_PAGES.includes(pathname);
+  const isSolid = !isHomePage || scrolled;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -31,10 +38,10 @@ export default function Navbar() {
         right: 0,
         zIndex: 100,
         transition: 'all 0.4s ease',
-        backgroundColor: scrolled ? 'rgba(27, 58, 122, 0.99)' : 'rgba(27, 58, 122, 0.99)',
-        backdropFilter: scrolled ? 'blur(12px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(201,153,58,0.3)' : '1px solid transparent',
-        padding: scrolled ? '12px 0' : '20px 0',
+        backgroundColor: isSolid ? 'rgba(27, 58, 122, 0.99)' : 'transparent',
+        backdropFilter: isSolid ? 'blur(12px)' : 'none',
+        borderBottom: isSolid ? '1px solid rgba(201,153,58,0.3)' : '1px solid transparent',
+        padding: isSolid ? '12px 0' : '20px 0',
       }}
     >
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>

@@ -64,7 +64,7 @@ const TIMELINE = [
 
 export default function ImpactPage() {
   return (
-    <div style={{ paddingTop: '80px' }}>
+    <div style={{ paddingTop: '65px' }}>
 
       {/* Hero */}
       <section style={{

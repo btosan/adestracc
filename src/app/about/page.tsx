@@ -18,7 +18,7 @@ const LEADERSHIP = [
 
 export default function AboutPage() {
   return (
-    <div style={{ paddingTop: '80px' }}>
+    <div style={{ paddingTop: '65px' }}>
 
       {/* Page Hero */}
       <section style={{
