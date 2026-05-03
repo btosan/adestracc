@@ -2,3 +2,49 @@ git init
 git add .
 git commit -m 'update'
 git push -u origin main
+
+resolve this error and provide the complete updated code so i copy and paste
+
+<!-- DEVELOPMENT -->
+
+npx prisma format
+
+npx prisma generate
+# or (better for development):
+npx prisma migrate dev --name add_project_date_default
+npx prisma migrate dev --name init (for the first time)
+# or (quick prototyping / no migrations):
+npx prisma db push
+
+<!-- PRODUCTION -->
+npx prisma migrate dev --name add_project_date_default
+npx prisma migrate dev --name baseline
+npx prisma migrate deploy
+
+npx prisma migrate resolve --applied 20260219_init
+
+npx prisma migrate dev --name add-monitoring-enhancements
+
+
+rm -rf package-lock.json .next
+
+npx prisma migrate dev --name add-user-status-and-last-seen
+npx prisma generate
+
+<!-- ORDER OF PRISMA PRODUCTION MIGRATION AFTER UPDATING SCHEMA.PRISMA -->
+# STEP 1:
+npx prisma migrate dev --name add-monitoring-enhancements
+
+# STEP 2:
+git add prisma/migrations
+git commit -m "Add monitoring enhancements"
+git push
+
+# STEP 3:
+npx prisma migrate deploy
+
+npx prisma db push
+
+<!-- GENERATE NEXT_AUTH -->
+openssl rand -base64 32
+# You do it in bash

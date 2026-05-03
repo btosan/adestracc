@@ -1,17 +1,17 @@
-// Prisma client singleton - generates after: npx prisma generate
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-let prisma: any;
+import { PrismaClient } from "@prisma/client";
+import { PrismaPg } from "@prisma/adapter-pg";
 
-if (typeof window === 'undefined') {
-  try {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const { PrismaClient } = require('@prisma/client');
-    const g = globalThis as { _prisma?: typeof PrismaClient };
-    prisma = g._prisma ?? new PrismaClient({ log: process.env.NODE_ENV === 'development' ? ['error'] : ['error'] });
-    if (process.env.NODE_ENV !== 'production') g._prisma = prisma;
-  } catch {
-    console.warn('Prisma client not generated yet. Run: npx prisma generate');
-  }
+const globalForPrisma = global as unknown as { prisma: PrismaClient };
+
+function createPrismaClient() {
+  const adapter = new PrismaPg({
+    connectionString: process.env.DATABASE_URL!,
+  });
+  return new PrismaClient({ adapter });
 }
 
-export { prisma };
+export const prisma = globalForPrisma.prisma ?? createPrismaClient();
+
+if (process.env.NODE_ENV !== "production") {
+  globalForPrisma.prisma = prisma;
+}

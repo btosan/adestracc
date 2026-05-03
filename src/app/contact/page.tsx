@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
@@ -54,7 +55,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div style={{ paddingTop: '65px' }}>
+    <div style={{ paddingTop: '60px' }}>
 
       {/* Hero */}
       <section style={{
@@ -91,7 +92,7 @@ export default function ContactPage() {
           {[
             { icon: '📍', label: 'Our Address', lines: ['ADESTRACC Secretariat', 'Asaba, Delta State', 'Nigeria'] },
             { icon: '📞', label: 'Phone', lines: ['+234 800 000 0000', '+234 801 000 0000'] },
-            { icon: '✉️', label: 'Email', lines: ['info@adestracc.org.ng', 'president@adestracc.org.ng'] },
+            { icon: '✉️', label: 'Email', lines: ['info@adestracc.com', 'president@adestracc.com'] },
             { icon: '🕐', label: 'Office Hours', lines: ['Monday – Friday', '8:00 AM – 5:00 PM WAT'] },
           ].map((card, i) => (
             <div key={i} style={{

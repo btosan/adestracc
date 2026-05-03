@@ -1,3 +1,4 @@
+'use client';
 import Link from 'next/link';
 
 const IMPACT_AREAS = [
@@ -6,6 +7,7 @@ const IMPACT_AREAS = [
     title: 'Cultural Preservation',
     color: 'var(--royal-blue)',
     stats: '120+ Heritage Sites',
+    img: 'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=600&q=80',
     desc: 'Documenting, protecting, and celebrating Delta State\'s diverse cultural heritage including festivals, oral traditions, artifacts, and sacred sites across all ethnic groups.',
     highlights: ['Annual Cultural Festival spanning 3 days', 'Heritage documentation in 36 ethnic groups', 'Youth cultural ambassador program', 'Museum partnership initiative'],
   },
@@ -14,6 +16,7 @@ const IMPACT_AREAS = [
     title: 'Peace & Stability',
     color: 'var(--crimson)',
     stats: '50+ Conflicts Resolved',
+    img: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80',
     desc: 'Leveraging the moral authority of traditional rulers to mediate inter-community disputes, foster reconciliation, and maintain grassroots social order.',
     highlights: ['Community mediation in 25 LGAs', 'Inter-ethnic dialogue forums', 'Crisis response task force', 'Youth restiveness reduction programs'],
   },
@@ -22,6 +25,7 @@ const IMPACT_AREAS = [
     title: 'Tourism Development',
     color: 'var(--gold)',
     stats: '₦2B+ Revenue Enabled',
+    img: 'https://images.unsplash.com/photo-1551038247-3d935814b429?w=600&q=80',
     desc: 'Positioning Delta State as a premier cultural tourism destination, opening heritage sites, and creating sustainable tourism economies in traditional communities.',
     highlights: ['Delta Heritage Tourism Circuit', 'International tour operator partnerships', 'Festival tourism packaging', 'Ecotourism in mangrove communities'],
   },
@@ -30,6 +34,7 @@ const IMPACT_AREAS = [
     title: 'Creative Economy',
     color: '#5A8040',
     stats: '2,000+ Artisans Empowered',
+    img: 'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=600&q=80',
     desc: 'Supporting traditional craftspeople, artists, musicians, and cultural entrepreneurs through training, market access, and advocacy for creative sector investment.',
     highlights: ['Traditional craft market network', 'Cultural content creation training', 'NOLLYWOOD Delta collaboration', 'Digital cultural archive project'],
   },
@@ -38,6 +43,7 @@ const IMPACT_AREAS = [
     title: 'Civic Engagement',
     color: '#6A4A8A',
     stats: '500K+ Voters Sensitized',
+    img: 'https://images.unsplash.com/photo-1612538498456-e861df91d474?w=600&q=80',
     desc: 'Working with INEC and NOA to promote civic participation, voter education, and the role of traditional institutions in democratic governance.',
     highlights: ['Pre-election voter education forums', 'Constitution awareness campaigns', 'Youth civic leadership program', 'INEC collaboration at grassroots'],
   },
@@ -46,6 +52,7 @@ const IMPACT_AREAS = [
     title: 'Community Development',
     color: '#2A7A5A',
     stats: '80+ Projects Facilitated',
+    img: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&q=80',
     desc: 'Partnering with NDDC and state government to channel infrastructure, healthcare, and education investments to underserved traditional communities.',
     highlights: ['Rural infrastructure advocacy', 'NDDC project monitoring', 'Healthcare outreach programs', 'Scholarship facilitation'],
   },
@@ -62,25 +69,45 @@ const TIMELINE = [
   { year: '2024', event: 'Launch of Youth Cultural Ambassador Program across all 25 LGAs' },
 ];
 
+const GALLERY_ITEMS = [
+  { label: 'Heritage Festival 2024', h: '260px', span: 2, img: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=900&q=80' },
+  { label: 'Chief\'s Assembly', h: '260px', span: 1, img: 'https://images.unsplash.com/photo-1612538498456-e861df91d474?w=500&q=80' },
+  { label: 'Cultural Exhibition', h: '260px', span: 1, img: 'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=500&q=80' },
+  { label: 'NDDC Forum', h: '180px', span: 1, img: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500&q=80' },
+  { label: 'Peace Dialogue', h: '180px', span: 1, img: 'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=500&q=80' },
+  { label: 'Youth Program', h: '180px', span: 1, img: 'https://images.unsplash.com/photo-1551038247-3d935814b429?w=500&q=80' },
+  { label: 'Tourism Launch', h: '180px', span: 1, img: 'https://images.unsplash.com/photo-1612538498456-e861df91d474?w=500&q=80' },
+];
+
 export default function ImpactPage() {
   return (
-    <div style={{ paddingTop: '65px' }}>
+    <div style={{ paddingTop: '60px' }}>
 
-      {/* Hero */}
+      {/* Hero — full-bleed photo */}
       <section style={{
-        background: 'linear-gradient(160deg, #0F2554 0%, #1B3A7A 100%)',
         padding: '80px 24px 100px',
         textAlign: 'center',
         position: 'relative',
         overflow: 'hidden',
+        minHeight: '480px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
       }}>
+        <img
+          src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1800&q=85"
+          alt="Community gathering Delta State"
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%' }}
+        />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(160deg, rgba(15,37,84,0.88) 0%, rgba(27,58,122,0.84) 100%)' }} />
         <div style={{ position: 'absolute', inset: 0, backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(201,153,58,0.04) 40px, rgba(201,153,58,0.04) 41px)' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
           <div style={{ fontSize: '11px', letterSpacing: '0.3em', color: 'var(--gold)', textTransform: 'uppercase', marginBottom: '16px' }}>Making a Difference</div>
           <h1 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(38px, 5vw, 64px)', color: '#fff', fontWeight: 700, marginBottom: '20px', lineHeight: 1.1 }}>
             Our <span style={{ color: 'var(--gold-light)', fontStyle: 'italic' }}>Impact</span>
           </h1>
-          <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '16px', lineHeight: 1.8 }}>
+          <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '16px', lineHeight: 1.8 }}>
             Four decades of preserving heritage, building peace, and empowering communities across all of Delta State.
           </p>
         </div>
@@ -116,7 +143,7 @@ export default function ImpactPage() {
         </div>
       </section>
 
-      {/* Impact Areas */}
+      {/* Impact Areas — cards with photos */}
       <section style={{ padding: '100px 24px', maxWidth: '1200px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '60px' }}>
           <div style={{ fontSize: '11px', letterSpacing: '0.25em', color: 'var(--gold)', textTransform: 'uppercase', marginBottom: '12px' }}>Areas of Impact</div>
@@ -130,27 +157,39 @@ export default function ImpactPage() {
               background: '#fff',
               border: '1px solid var(--border)',
               borderTop: `4px solid ${area.color}`,
-              padding: '36px 28px',
               borderRadius: '2px',
+              overflow: 'hidden',
             }}>
-              <div style={{ fontSize: '36px', marginBottom: '16px' }}>{area.icon}</div>
-              <h3 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '24px', color: 'var(--royal-blue-deep)', fontWeight: 700, marginBottom: '6px' }}>{area.title}</h3>
-              <div style={{ fontSize: '12px', color: area.color, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '16px' }}>{area.stats}</div>
-              <p style={{ fontSize: '13px', color: 'var(--text-mid)', lineHeight: 1.7, marginBottom: '20px' }}>{area.desc}</p>
-              <div style={{ borderTop: '1px solid var(--border)', paddingTop: '16px' }}>
-                {area.highlights.map((h, j) => (
-                  <div key={j} style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                    <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: area.color, flexShrink: 0 }} />
-                    <span style={{ fontSize: '12px', color: 'var(--text-light)' }}>{h}</span>
-                  </div>
-                ))}
+              {/* Photo */}
+              <div style={{ height: '180px', overflow: 'hidden' }}>
+                <img
+                  src={area.img}
+                  alt={area.title}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                  onMouseOver={e => (e.currentTarget.style.transform = 'scale(1.06)')}
+                  onMouseOut={e => (e.currentTarget.style.transform = 'scale(1)')}
+                />
+              </div>
+              <div style={{ padding: '28px' }}>
+                <div style={{ fontSize: '32px', marginBottom: '12px' }}>{area.icon}</div>
+                <h3 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '24px', color: 'var(--royal-blue-deep)', fontWeight: 700, marginBottom: '6px' }}>{area.title}</h3>
+                <div style={{ fontSize: '12px', color: area.color, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '16px' }}>{area.stats}</div>
+                <p style={{ fontSize: '13px', color: 'var(--text-mid)', lineHeight: 1.7, marginBottom: '20px' }}>{area.desc}</p>
+                <div style={{ borderTop: '1px solid var(--border)', paddingTop: '16px' }}>
+                  {area.highlights.map((h, j) => (
+                    <div key={j} style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                      <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: area.color, flexShrink: 0 }} />
+                      <span style={{ fontSize: '12px', color: 'var(--text-light)' }}>{h}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Gallery */}
+      {/* Gallery — real photos */}
       <section style={{ background: 'var(--ivory-dark)', borderTop: '1px solid var(--border)', padding: '100px 24px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '56px' }}>
@@ -160,28 +199,24 @@ export default function ImpactPage() {
             </h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridTemplateRows: 'auto auto', gap: '10px' }}>
-            {[
-              { label: 'Heritage Festival 2024', h: '260px', span: 2, color: '#1B3A7A' },
-              { label: 'Chief\'s Assembly', h: '260px', span: 1, color: '#8B1A2E' },
-              { label: 'Cultural Exhibition', h: '260px', span: 1, color: '#C9993A' },
-              { label: 'NDDC Forum', h: '180px', span: 1, color: '#0F2554' },
-              { label: 'Peace Dialogue', h: '180px', span: 1, color: '#2B5099' },
-              { label: 'Youth Program', h: '180px', span: 1, color: '#6B1020' },
-              { label: 'Tourism Launch', h: '180px', span: 1, color: '#5A8040' },
-            ].map((g, i) => (
+            {GALLERY_ITEMS.map((g, i) => (
               <div key={i} style={{
                 gridColumn: `span ${g.span}`,
                 height: g.h,
-                background: `linear-gradient(160deg, ${g.color}ee, ${g.color}77)`,
                 borderRadius: '3px',
-                display: 'flex', alignItems: 'flex-end',
-                padding: '16px',
+                overflow: 'hidden',
                 cursor: 'pointer',
                 position: 'relative',
-                overflow: 'hidden',
               }}>
-                <div style={{ position: 'absolute', inset: 0, backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255,255,255,0.02) 15px, rgba(255,255,255,0.02) 16px)' }} />
-                <div style={{ position: 'relative', zIndex: 1 }}>
+                <img
+                  src={g.img}
+                  alt={g.label}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                  onMouseOver={e => (e.currentTarget.style.transform = 'scale(1.06)')}
+                  onMouseOut={e => (e.currentTarget.style.transform = 'scale(1)')}
+                />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(0deg, rgba(15,37,84,0.7) 0%, transparent 55%)' }} />
+                <div style={{ position: 'absolute', bottom: '16px', left: '16px', zIndex: 1 }}>
                   <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '14px', color: '#fff', fontWeight: 600 }}>{g.label}</div>
                   <div style={{ width: '24px', height: '2px', background: 'var(--gold)', marginTop: '4px' }} />
                 </div>
@@ -208,7 +243,6 @@ export default function ImpactPage() {
               marginBottom: '40px',
               position: 'relative',
             }}>
-              {/* Center dot */}
               <div style={{
                 position: 'absolute',
                 left: '50%',

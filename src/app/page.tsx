@@ -1,3 +1,4 @@
+'use client';
 /* eslint-disable react/no-unescaped-entities */
 import Link from 'next/link';
 
@@ -22,12 +23,18 @@ const NEWS_ITEMS = [
 ];
 
 const GALLERY_IMAGES = [
-  { label: 'Royal Court Assembly', color: '#1B3A7A' },
-  { label: 'Cultural Festival', color: '#8B1A2E' },
-  { label: 'Heritage Exhibition', color: '#C9993A' },
-  { label: 'Chiefs Convention', color: '#0F2554' },
-  { label: 'Community Development', color: '#2B5099' },
-  { label: 'Tourism Showcase', color: '#A82038' },
+  { label: 'Royal Court Assembly', img: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80' },
+  { label: 'Cultural Festival', img: 'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=500&q=80' },
+  { label: 'Heritage Exhibition', img: 'https://images.unsplash.com/photo-1551038247-3d935814b429?w=500&q=80' },
+  { label: 'Chiefs Convention', img: 'https://images.unsplash.com/photo-1612538498456-e861df91d474?w=500&q=80' },
+  { label: 'Community Development', img: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500&q=80' },
+  { label: 'Tourism Showcase', img: 'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=500&q=80' },
+];
+
+// Hero background images — layered for depth
+const HERO_IMAGES = [
+  'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1800&q=85', // traditional ceremony
+  'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1800&q=85', // African culture
 ];
 
 export default function HomePage() {
@@ -37,7 +44,6 @@ export default function HomePage() {
       {/* ─── HERO ─── */}
       <section style={{
         minHeight: '100vh',
-        background: 'linear-gradient(160deg, #0F2554 0%, #1B3A7A 45%, #2B5099 100%)',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -46,6 +52,22 @@ export default function HomePage() {
         overflow: 'hidden',
         padding: '120px 24px 80px',
       }}>
+        {/* Full-bleed hero photo */}
+        <img
+          src={HERO_IMAGES[0]}
+          alt="Traditional chiefs assembly"
+          style={{
+            position: 'absolute', inset: 0,
+            width: '100%', height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center top',
+          }}
+        />
+        {/* Rich overlay — royal blue gradient over image */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(160deg, rgba(15,37,84,0.88) 0%, rgba(27,58,122,0.82) 45%, rgba(43,80,153,0.78) 100%)',
+        }} />
         {/* Geometric pattern overlay */}
         <div style={{
           position: 'absolute', inset: 0,
@@ -95,7 +117,7 @@ export default function HomePage() {
             Traditional Council of Chiefs
           </h1>
 
-          <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '17px', lineHeight: 1.8, maxWidth: '680px', margin: '0 auto 48px', fontWeight: 300 }}>
+          <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '17px', lineHeight: 1.8, maxWidth: '680px', margin: '0 auto 48px', fontWeight: 300 }}>
             Uniting gazetted chiefs across all ethnicities — preserving our rich cultural heritage and strengthening grassroots social stability through tradition, culture, tourism & creativity.
           </p>
 
@@ -111,7 +133,6 @@ export default function HomePage() {
               fontSize: '13px',
               letterSpacing: '0.12em',
               textTransform: 'uppercase',
-              transition: 'transform 0.2s, box-shadow 0.2s',
             }}>
               Discover Our Story
             </Link>
@@ -140,6 +161,172 @@ export default function HomePage() {
         }}>
           <span>Scroll</span>
           <div style={{ width: '1px', height: '40px', background: 'linear-gradient(180deg, rgba(201,153,58,0.6), transparent)' }} />
+        </div>
+      </section>
+
+
+      {/* ─── WHO WE ARE BANNER ─── */}
+      <section style={{ background: 'var(--royal-blue-deep)', padding: '0' }}>
+        <style>{`
+          .who-we-are-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+          }
+          .who-card-img {
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          }
+          .who-card:hover .who-card-img {
+            transform: scale(1.07);
+          }
+          .who-card-overlay {
+            background: linear-gradient(0deg, rgba(15,37,84,0.85) 0%, rgba(15,37,84,0.2) 55%, transparent 100%);
+            transition: background 0.4s ease;
+          }
+          .who-card:hover .who-card-overlay {
+            background: linear-gradient(0deg, rgba(15,37,84,0.92) 0%, rgba(15,37,84,0.45) 60%, rgba(15,37,84,0.1) 100%);
+          }
+          .who-card-content {
+            transition: transform 0.4s ease;
+          }
+          .who-card:hover .who-card-content {
+            transform: translateY(-6px);
+          }
+          .who-card-accent {
+            width: 0px;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.4s ease 0.1s;
+          }
+          .who-card:hover .who-card-accent {
+            width: 40px;
+          }
+          @media (max-width: 640px) {
+            .who-we-are-grid {
+              grid-template-columns: repeat(2, 1fr);
+            }
+          }
+        `}</style>
+
+        {/* Top label bar */}
+        <div style={{
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          gap: '20px', padding: '20px 24px',
+          borderBottom: '1px solid rgba(201,153,58,0.2)',
+        }}>
+          <div style={{ height: '1px', width: '48px', background: 'var(--gold)', opacity: 0.6 }} />
+          <span style={{
+            fontSize: '10px', letterSpacing: '0.35em',
+            color: 'var(--gold)', textTransform: 'uppercase', fontWeight: 600,
+          }}>
+            Who We Are
+          </span>
+          <div style={{ height: '1px', width: '48px', background: 'var(--gold)', opacity: 0.6 }} />
+        </div>
+
+        {/* 4-image grid */}
+        <div className="who-we-are-grid">
+          {[
+            {
+              img: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=700&q=85',
+              label: 'Custodians of Tradition',
+              sub: 'Gazetted chiefs preserving Delta State\'s ancestral values',
+              position: 'center 30%',
+            },
+            {
+              img: 'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=700&q=85',
+              label: 'Voice of Unity',
+              sub: '36+ ethnic groups unified under one body',
+              position: 'center 40%',
+            },
+            {
+              img: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=85',
+              label: 'Champions of Heritage',
+              sub: 'Celebrating the rich cultural tapestry of Delta State',
+              position: 'center 35%',
+            },
+            {
+              img: 'https://images.unsplash.com/photo-1612538498456-e861df91d474?w=700&q=85',
+              label: 'Builders of Tomorrow',
+              sub: 'Driving grassroots development through tradition',
+              position: 'center 45%',
+            },
+          ].map((card, i) => (
+            <div
+              key={i}
+              className="who-card"
+              style={{
+                position: 'relative',
+                height: '420px',
+                overflow: 'hidden',
+                cursor: 'default',
+                borderRight: i < 3 ? '1px solid rgba(201,153,58,0.15)' : 'none',
+              }}
+            >
+              {/* Photo */}
+              <img
+                src={card.img}
+                alt={card.label}
+                className="who-card-img"
+                style={{
+                  position: 'absolute', inset: 0,
+                  width: '100%', height: '100%',
+                  objectFit: 'cover',
+                  objectPosition: card.position,
+                }}
+              />
+
+              {/* Gradient overlay */}
+              <div className="who-card-overlay" style={{ position: 'absolute', inset: 0 }} />
+
+              {/* Gold left rule */}
+              <div style={{
+                position: 'absolute', top: 0, left: 0,
+                width: '3px', height: '100%',
+                background: 'linear-gradient(180deg, var(--gold) 0%, transparent 100%)',
+                opacity: 0.5,
+              }} />
+
+              {/* Number badge */}
+              <div style={{
+                position: 'absolute', top: '20px', right: '20px',
+                fontFamily: 'Cormorant Garamond, serif',
+                fontSize: '11px', fontWeight: 700,
+                color: 'rgba(201,153,58,0.5)',
+                letterSpacing: '0.15em',
+              }}>
+                0{i + 1}
+              </div>
+
+              {/* Text content */}
+              <div
+                className="who-card-content"
+                style={{
+                  position: 'absolute', bottom: 0, left: 0, right: 0,
+                  padding: '28px 24px',
+                }}
+              >
+                <div className="who-card-accent" style={{ marginBottom: '12px' }} />
+                <h3 style={{
+                  fontFamily: 'Cormorant Garamond, serif',
+                  fontSize: '22px',
+                  fontWeight: 700,
+                  color: '#fff',
+                  lineHeight: 1.2,
+                  marginBottom: '8px',
+                }}>
+                  {card.label}
+                </h3>
+                <p style={{
+                  fontSize: '12px',
+                  color: 'rgba(255,255,255,0.65)',
+                  lineHeight: 1.6,
+                  letterSpacing: '0.02em',
+                }}>
+                  {card.sub}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -203,32 +390,32 @@ export default function HomePage() {
             </Link>
           </div>
 
-          {/* Visual card */}
+          {/* Visual card with real photo */}
           <div style={{ position: 'relative' }}>
+            {/* Real photo behind the card */}
             <div style={{
-              background: 'linear-gradient(160deg, var(--royal-blue-deep) 0%, var(--royal-blue) 100%)',
               borderRadius: '4px',
-              padding: '48px 40px',
-              color: '#fff',
-              position: 'relative',
               overflow: 'hidden',
+              position: 'relative',
+              height: '380px',
             }}>
+              <img
+                src="https://images.unsplash.com/photo-1612538498456-e861df91d474?w=700&q=80"
+                alt="Delta State chiefs gathering"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+              {/* Overlay with founding year badge */}
               <div style={{
-                position: 'absolute', top: 0, right: 0,
-                width: '140px', height: '140px',
-                background: 'radial-gradient(circle, rgba(201,153,58,0.15) 0%, transparent 70%)',
-              }} />
-              <div style={{ position: 'relative', zIndex: 1 }}>
-                <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '52px', fontWeight: 700, color: 'var(--gold-light)', lineHeight: 1, marginBottom: '8px' }}>
+                position: 'absolute',
+                bottom: 0, left: 0, right: 0,
+                background: 'linear-gradient(0deg, rgba(15,37,84,0.92) 0%, transparent 100%)',
+                padding: '40px 32px 28px',
+              }}>
+                <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '48px', fontWeight: 700, color: 'var(--gold-light)', lineHeight: 1 }}>
                   1983
                 </div>
-                <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.7)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '32px' }}>
-                  Year Founded
-                </div>
-                <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: '24px' }}>
-                  <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '22px', fontStyle: 'italic', lineHeight: 1.5, color: 'rgba(255,255,255,0.85)' }}>
-                    "Together, we celebrate our identity. Together, we build a stronger future."
-                  </p>
+                <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.7)', letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: '4px' }}>
+                  Est. Year · Four Decades of Service
                 </div>
               </div>
             </div>
@@ -297,20 +484,29 @@ export default function HomePage() {
             <div key={i} style={{
               gridColumn: i === 0 ? 'span 2' : 'span 1',
               height: i === 0 ? '320px' : '200px',
-              background: `linear-gradient(160deg, ${img.color}dd, ${img.color}88)`,
               borderRadius: '4px',
-              display: 'flex', alignItems: 'flex-end',
-              padding: '20px',
+              overflow: 'hidden',
               cursor: 'pointer',
               position: 'relative',
-              overflow: 'hidden',
-              transition: 'transform 0.3s ease',
             }}>
+              <img
+                src={img.img}
+                alt={img.label}
+                style={{
+                  width: '100%', height: '100%',
+                  objectFit: 'cover',
+                  transition: 'transform 0.5s ease',
+                  display: 'block',
+                }}
+                onMouseOver={e => (e.currentTarget.style.transform = 'scale(1.05)')}
+                onMouseOut={e => (e.currentTarget.style.transform = 'scale(1)')}
+              />
+              {/* Label overlay */}
               <div style={{
                 position: 'absolute', inset: 0,
-                background: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.02) 10px, rgba(255,255,255,0.02) 11px)',
+                background: 'linear-gradient(0deg, rgba(15,37,84,0.75) 0%, transparent 60%)',
               }} />
-              <div style={{ position: 'relative', zIndex: 1 }}>
+              <div style={{ position: 'absolute', bottom: '20px', left: '20px', zIndex: 1 }}>
                 <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '16px', color: '#fff', fontWeight: 600 }}>{img.label}</div>
                 <div style={{ width: '30px', height: '2px', background: 'var(--gold)', marginTop: '6px' }} />
               </div>
@@ -340,9 +536,9 @@ export default function HomePage() {
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
             {[
-              { title: 'ADESTRACC Annual Convention 2024', duration: '12:34', views: '2.4K' },
-              { title: 'Cultural Heritage Preservation in Delta State', duration: '8:12', views: '1.8K' },
-              { title: 'NDDC Partnership Launch Ceremony', duration: '15:45', views: '3.1K' },
+              { title: 'ADESTRACC Annual Convention 2024', duration: '12:34', views: '2.4K', img: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80' },
+              { title: 'Cultural Heritage Preservation in Delta State', duration: '8:12', views: '1.8K', img: 'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=600&q=80' },
+              { title: 'NDDC Partnership Launch Ceremony', duration: '15:45', views: '3.1K', img: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&q=80' },
             ].map((v, i) => (
               <div key={i} style={{
                 background: 'rgba(255,255,255,0.05)',
@@ -353,19 +549,25 @@ export default function HomePage() {
               }}>
                 <div style={{
                   height: '180px',
-                  background: `linear-gradient(160deg, rgba(27,58,122,0.8), rgba(15,37,84,0.9))`,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
                   position: 'relative',
+                  overflow: 'hidden',
                 }}>
+                  <img src={v.img} alt={v.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <div style={{ position: 'absolute', inset: 0, background: 'rgba(15,37,84,0.55)' }} />
                   <div style={{
-                    width: '56px', height: '56px',
-                    background: 'rgba(201,153,58,0.9)',
-                    borderRadius: '50%',
+                    position: 'absolute', inset: 0,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                   }}>
-                    <div style={{ width: 0, height: 0, borderTop: '12px solid transparent', borderBottom: '12px solid transparent', borderLeft: '20px solid white', marginLeft: '4px' }} />
+                    <div style={{
+                      width: '56px', height: '56px',
+                      background: 'rgba(201,153,58,0.9)',
+                      borderRadius: '50%',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    }}>
+                      <div style={{ width: 0, height: 0, borderTop: '12px solid transparent', borderBottom: '12px solid transparent', borderLeft: '20px solid white', marginLeft: '4px' }} />
+                    </div>
                   </div>
-                  <div style={{ position: 'absolute', bottom: '12px', right: '12px', fontSize: '11px', color: 'rgba(255,255,255,0.7)', background: 'rgba(0,0,0,0.4)', padding: '2px 8px', borderRadius: '10px' }}>
+                  <div style={{ position: 'absolute', bottom: '12px', right: '12px', fontSize: '11px', color: 'rgba(255,255,255,0.9)', background: 'rgba(0,0,0,0.5)', padding: '2px 8px', borderRadius: '10px' }}>
                     {v.duration}
                   </div>
                 </div>
@@ -399,21 +601,36 @@ export default function HomePage() {
               border: '1px solid var(--border)',
               borderTop: '3px solid var(--royal-blue)',
               borderRadius: '2px',
-              padding: '28px',
-              transition: 'box-shadow 0.3s ease, transform 0.2s ease',
+              overflow: 'hidden',
               cursor: 'pointer',
             }}>
-              <div style={{ fontSize: '11px', color: 'var(--gold)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '12px', fontWeight: 500 }}>
-                {n.date}
+              {/* News card photo */}
+              <div style={{ height: '160px', overflow: 'hidden' }}>
+                <img
+                  src={[
+                    'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80',
+                    'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=600&q=80',
+                    'https://images.unsplash.com/photo-1551038247-3d935814b429?w=600&q=80',
+                  ][i]}
+                  alt={n.title}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }}
+                  onMouseOver={e => (e.currentTarget.style.transform = 'scale(1.04)')}
+                  onMouseOut={e => (e.currentTarget.style.transform = 'scale(1)')}
+                />
               </div>
-              <h3 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '21px', color: 'var(--royal-blue-deep)', fontWeight: 600, lineHeight: 1.3, marginBottom: '12px' }}>
-                {n.title}
-              </h3>
-              <p style={{ fontSize: '13px', color: 'var(--text-light)', lineHeight: 1.7 }}>
-                {n.excerpt}
-              </p>
-              <div style={{ marginTop: '20px', fontSize: '12px', color: 'var(--royal-blue)', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-                Read More →
+              <div style={{ padding: '28px' }}>
+                <div style={{ fontSize: '11px', color: 'var(--gold)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '12px', fontWeight: 500 }}>
+                  {n.date}
+                </div>
+                <h3 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '21px', color: 'var(--royal-blue-deep)', fontWeight: 600, lineHeight: 1.3, marginBottom: '12px' }}>
+                  {n.title}
+                </h3>
+                <p style={{ fontSize: '13px', color: 'var(--text-light)', lineHeight: 1.7 }}>
+                  {n.excerpt}
+                </p>
+                <div style={{ marginTop: '20px', fontSize: '12px', color: 'var(--royal-blue)', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                  Read More →
+                </div>
               </div>
             </article>
           ))}
@@ -422,12 +639,21 @@ export default function HomePage() {
 
       {/* ─── CTA BANNER ─── */}
       <section style={{
-        background: 'linear-gradient(135deg, var(--crimson) 0%, #6B1020 100%)',
+        position: 'relative',
         padding: '80px 24px',
         textAlign: 'center',
-        position: 'relative',
         overflow: 'hidden',
       }}>
+        {/* Background photo */}
+        <img
+          src="https://images.unsplash.com/photo-1612538498456-e861df91d474?w=1600&q=80"
+          alt="Chiefs gathering"
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+        />
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(135deg, rgba(139,26,46,0.92) 0%, rgba(107,16,32,0.95) 100%)',
+        }} />
         <div style={{
           position: 'absolute', inset: 0,
           backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(255,255,255,0.02) 30px, rgba(255,255,255,0.02) 31px)',

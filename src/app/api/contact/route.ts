@@ -1,23 +1,15 @@
-import { NextRequest, NextResponse } from 'next/server';
+export const dynamic = 'force-dynamic'
+import { NextRequest, NextResponse } from 'next/server'
+import { prisma } from '@/lib/prisma'
 
 export async function POST(req: NextRequest) {
   try {
-    const body = await req.json();
-    const { name, email, phone, subject, message } = body;
-
-    if (!name || !email || !subject || !message) {
-      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
-    }
-
-    // Here you would save to database via Prisma:
-    // const prisma = new PrismaClient()
-    // await prisma.contactMessage.create({ data: { name, email, phone, subject, message } })
-
-    console.log('Contact form submission:', { name, email, phone, subject, message });
-
-    return NextResponse.json({ success: true, message: 'Message received successfully' });
-  } catch (error) {
-    console.error('Contact form error:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    const { name, email, phone, subject, message } = await req.json()
+    if (!name || !email || !subject || !message)
+      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
+    await prisma.contactMessage.create({ data: { name, email, subject, message: phone ? `[Phone: ${phone}]\n\n${message}` : message } })
+    return NextResponse.json({ success: true })
+  } catch {
+    return NextResponse.json({ error: 'Server error' }, { status: 500 })
   }
 }

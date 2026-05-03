@@ -1,3 +1,6 @@
+'use client';
+/* eslint-disable react/no-unescaped-entities */
+
 import Link from 'next/link';
 
 const CORE_VALUES = [
@@ -18,23 +21,42 @@ const LEADERSHIP = [
 
 export default function AboutPage() {
   return (
-    <div style={{ paddingTop: '65px' }}>
+    <div style={{ paddingTop: '60px' }}>
 
-      {/* Page Hero */}
+      {/* Page Hero — full-bleed photo */}
       <section style={{
-        background: 'linear-gradient(160deg, #0F2554 0%, #1B3A7A 100%)',
         padding: '80px 24px 100px',
         position: 'relative',
         overflow: 'hidden',
         textAlign: 'center',
+        minHeight: '480px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
       }}>
+        {/* Hero background photo */}
+        <img
+          src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1800&q=85"
+          alt="Traditional chiefs ceremony"
+          style={{
+            position: 'absolute', inset: 0,
+            width: '100%', height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center 30%',
+          }}
+        />
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(160deg, rgba(15,37,84,0.90) 0%, rgba(27,58,122,0.85) 100%)',
+        }} />
         <div style={{ position: 'absolute', inset: 0, backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(201,153,58,0.04) 40px, rgba(201,153,58,0.04) 41px)', pointerEvents: 'none' }} />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '700px', margin: '0 auto' }}>
           <div style={{ fontSize: '11px', letterSpacing: '0.3em', color: 'var(--gold)', textTransform: 'uppercase', marginBottom: '16px' }}>Our Story</div>
           <h1 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(38px, 5vw, 64px)', color: '#fff', fontWeight: 700, marginBottom: '20px', lineHeight: 1.1 }}>
             About <span style={{ color: 'var(--gold-light)', fontStyle: 'italic' }}>ADESTRACC</span>
           </h1>
-          <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '16px', lineHeight: 1.8 }}>
+          <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '16px', lineHeight: 1.8 }}>
             The official unified body representing gazetted chiefs across all ethnic groups in Delta State, Nigeria.
           </p>
         </div>
@@ -74,28 +96,56 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Full Story */}
+      {/* Full Story — with side photo */}
       <section style={{ background: 'var(--ivory-dark)', padding: '100px 24px', borderTop: '1px solid var(--border)' }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <div style={{ fontSize: '11px', letterSpacing: '0.25em', color: 'var(--gold)', textTransform: 'uppercase', marginBottom: '12px' }}>Our History</div>
-            <h2 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(32px, 4vw, 48px)', color: 'var(--royal-blue-deep)', fontWeight: 700 }}>
-              A Legacy of Unity
-            </h2>
-          </div>
-          <div style={{ fontSize: '16px', lineHeight: 2, color: 'var(--text-mid)' }}>
-            <p style={{ marginBottom: '24px' }}>
-              ADESTRACC — the Association of Delta State Traditional Council of Chiefs — was established as the foremost official body representing all gazetted chiefs across Delta State. Born from the recognition that traditional institutions are the bedrock of our communities, the association was founded on the conviction that a unified voice of chiefs could drive transformative change.
-            </p>
-            <p style={{ marginBottom: '24px' }}>
-              Delta State is a mosaic of over 36 distinct ethnic groups — Urhobo, Itsekiri, Ijaw, Isoko, Ndokwa, Ukwuani, and many more — each with deep-rooted traditions and cultural expressions. ADESTRACC serves as the bridge that unites these diverse peoples under shared values of respect, collaboration, and progress.
-            </p>
-            <p style={{ marginBottom: '24px' }}>
-              Over the years, the association has grown into a formidable institution partnering with federal agencies including the Federal Ministry of Arts, Culture, Tourism & Creative Economy, the Niger Delta Development Commission (NDDC), the National Orientation Agency (NOA), and the Independent National Electoral Commission (INEC).
-            </p>
-            <p>
-              Today, ADESTRACC stands as the authoritative voice of grassroots governance in Delta State — championing cultural preservation, youth engagement, civic education, economic development, and community resilience across all 25 local government areas.
-            </p>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '72px', alignItems: 'center' }}>
+            {/* Photo column */}
+            <div style={{ position: 'relative' }}>
+              <div style={{ borderRadius: '4px', overflow: 'hidden', height: '500px' }}>
+                <img
+                  src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=800&q=80"
+                  alt="Delta State cultural gathering"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+              </div>
+              {/* Floating stat badge */}
+              <div style={{
+                position: 'absolute', bottom: '-24px', right: '-24px',
+                background: 'var(--royal-blue-deep)',
+                border: '4px solid var(--ivory-dark)',
+                borderRadius: '4px',
+                padding: '20px 28px',
+                textAlign: 'center',
+              }}>
+                <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '42px', fontWeight: 700, color: 'var(--gold)', lineHeight: 1 }}>40+</div>
+                <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.7)', letterSpacing: '0.1em', textTransform: 'uppercase', marginTop: '4px' }}>Years of Service</div>
+              </div>
+            </div>
+
+            {/* Text column */}
+            <div style={{ paddingBottom: '24px' }}>
+              <div style={{ textAlign: 'left', marginBottom: '40px' }}>
+                <div style={{ fontSize: '11px', letterSpacing: '0.25em', color: 'var(--gold)', textTransform: 'uppercase', marginBottom: '12px' }}>Our History</div>
+                <h2 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(32px, 4vw, 48px)', color: 'var(--royal-blue-deep)', fontWeight: 700 }}>
+                  A Legacy of Unity
+                </h2>
+              </div>
+              <div style={{ fontSize: '15px', lineHeight: 2, color: 'var(--text-mid)' }}>
+                <p style={{ marginBottom: '20px' }}>
+                  ADESTRACC was established as the foremost official body representing all gazetted chiefs across Delta State. Born from the recognition that traditional institutions are the bedrock of our communities, the association was founded on the conviction that a unified voice of chiefs could drive transformative change.
+                </p>
+                <p style={{ marginBottom: '20px' }}>
+                  Delta State is a mosaic of over 36 distinct ethnic groups — Urhobo, Itsekiri, Ijaw, Isoko, Ndokwa, Ukwuani, and many more — each with deep-rooted traditions and cultural expressions. ADESTRACC serves as the bridge that unites these diverse peoples under shared values of respect, collaboration, and progress.
+                </p>
+                <p style={{ marginBottom: '20px' }}>
+                  Over the years, the association has grown into a formidable institution partnering with federal agencies including FMACTCE, NDDC, NOA, and INEC.
+                </p>
+                <p>
+                  Today, ADESTRACC stands as the authoritative voice of grassroots governance in Delta State — championing cultural preservation, youth engagement, civic education, and community resilience across all 25 LGAs.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -114,7 +164,6 @@ export default function AboutPage() {
               border: '1px solid var(--border)',
               borderRadius: '2px',
               textAlign: 'center',
-              transition: 'transform 0.2s, box-shadow 0.2s',
             }}>
               <div style={{ fontSize: '40px', marginBottom: '20px' }}>{v.icon}</div>
               <h3 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '24px', color: 'var(--royal-blue)', fontWeight: 700, marginBottom: '12px' }}>{v.title}</h3>
@@ -124,9 +173,16 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Leadership */}
-      <section style={{ background: 'var(--royal-blue-deep)', padding: '100px 24px' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+      {/* Leadership — dark section with photo backdrop */}
+      <section style={{ position: 'relative', padding: '100px 24px', overflow: 'hidden' }}>
+        {/* Subtle background photo */}
+        <img
+          src="https://images.unsplash.com/photo-1612538498456-e861df91d474?w=1800&q=60"
+          alt="Chiefs assembly backdrop"
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%' }}
+        />
+        <div style={{ position: 'absolute', inset: 0, background: 'rgba(15,37,84,0.96)' }} />
+        <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>
             <div style={{ fontSize: '11px', letterSpacing: '0.25em', color: 'var(--gold)', textTransform: 'uppercase', marginBottom: '12px' }}>Governance</div>
             <h2 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(32px, 4vw, 48px)', color: '#fff', fontWeight: 700 }}>Executive Leadership</h2>

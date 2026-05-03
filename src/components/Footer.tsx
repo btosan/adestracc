@@ -74,7 +74,7 @@ export default function Footer() {
             <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.65)', lineHeight: 2 }}>
               <div>📍 Delta State, Nigeria</div>
               <div>📞 +234 800 000 0000</div>
-              <div>✉️ info@adestracc.org.ng</div>
+              <div>✉️ info@adestracc.com</div>
             </div>
             <div style={{ marginTop: '20px', display: 'flex', gap: '10px' }}>
               {['Facebook', 'Twitter', 'Instagram'].map(s => (
