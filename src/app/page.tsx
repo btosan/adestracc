@@ -412,7 +412,7 @@ export default function HomePage() {
                 padding: '40px 32px 28px',
               }}>
                 <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '48px', fontWeight: 700, color: 'var(--gold-light)', lineHeight: 1 }}>
-                  1983
+                  2020
                 </div>
                 <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.7)', letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: '4px' }}>
                   Est. Year · Four Decades of Service
