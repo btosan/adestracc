@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect, useCallback, useRef } from 'react';
 
-// ─── DATA ─────────────────────────────────────────────────────────────────────
+// ─── DATA  videos ─────────────────────────────────────────────────────────────────────
 
 const SLIDE_PANELS = [
   { bg: '#0F2554' },
@@ -17,8 +17,24 @@ const SLIDE_PANELS = [
 
 const HERO_SLIDES = [
 
+    {
+    img: '/assets/images/chief-egbodo.jpeg',
+    tag: 'Cultural Preservation',
+    heading: 'Custodians of Delta State Heritage',
+    sub: 'Uniting gazetted chiefs across all ethnic groups to preserve our rich ancestral legacy and drive sustainable grassroots development.',
+    cta: { label: 'Our Story', href: '/about' },
+    cta2: { label: 'Contact Us', href: '/contact' },
+  },
   {
-    img: '/assets/images/adestracc-img6.jpg',
+    img: '/assets/images/chiefs-group.jpeg',
+    tag: 'Cultural Preservation',
+    heading: 'Custodians of Delta State Heritage',
+    sub: 'Uniting gazetted chiefs across all ethnic groups to preserve our rich ancestral legacy and drive sustainable grassroots development.',
+    cta: { label: 'Our Story', href: '/about' },
+    cta2: { label: 'Contact Us', href: '/contact' },
+  },
+    {
+    img: '/assets/images/adestracc-img9.jpg',
     tag: 'Cultural Preservation',
     heading: 'Custodians of Delta State Heritage',
     sub: 'Uniting gazetted chiefs across all ethnic groups to preserve our rich ancestral legacy and drive sustainable grassroots development.',
@@ -155,21 +171,33 @@ const GALLERY_IMAGES = [
 const VIDEO_ITEMS = [
   {
     src: '/assets/videos/localcontent.mp4',
-    title: 'ADESTRACC Annual Convention 2024',
+    title: 'ADESTRACC Local Content Implementation',
+    views: '2.4K',
+    poster: '/assets/videos/local-content-implementation.png',
+  },
+  {
+    src: '/assets/videos/gbaramatu-visit.mp4',
+    title: 'Tantita Security Services with ADESTRACC',
+    views: '1.8K',
+    poster: '/assets/videos/gbaramatu-visit.png',
+  },
+  {
+    src: '/assets/videos/nddc-partnership.mp4',
+    title: 'NDDC  In Partnership With ADESTRACC',
+    views: '3.1K',
+    poster: '/assets/videos/nndc-partnership.png',
+  },
+    {
+    src: '/assets/videos/local-content.mp4',
+    title: 'ADESTRACC Local Content Implementation',
+    views: '2.4K',
+    poster: '/assets/videos/local-content-dev4.png',
+  },
+    {
+    src: '/assets/videos/localcontent2.mp4',
+    title: 'ADESTRACC Local Content Development',
     views: '2.4K',
     poster: '/assets/images/adestracc-img1.jpg',
-  },
-  {
-    src: '/assets/videos/adestracc-video2.mp4',
-    title: 'Cultural Heritage Preservation in Delta State',
-    views: '1.8K',
-    poster: '/assets/images/adestracc-img2.jpg',
-  },
-  {
-    src: '/assets/videos/adestracc-video3.mp4',
-    title: 'NDDC Partnership Launch Ceremony',
-    views: '3.1K',
-    poster: '/assets/images/adestracc-img3.jpg',
   },
 ];
 
