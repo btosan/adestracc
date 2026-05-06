@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Link from 'next/link';
 import { MapPin, Phone, Mail, ExternalLink } from 'lucide-react';
 
@@ -70,7 +71,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3 text-sm text-white/70">
                 <Phone size={15} className="text-[var(--gold)] shrink-0" />
-                <a href="tel:+2348000000000" className="hover:text-[var(--gold-bright)]">+234 800 000 0000</a>
+                <a href="tel:+2347039223978" className="hover:text-[var(--gold-bright)]">+234 703 922 3978</a>
               </li>
               <li className="flex items-center gap-3 text-sm text-white/70">
                 <Mail size={15} className="text-[var(--gold)] shrink-0" />
