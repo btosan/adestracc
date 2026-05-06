@@ -16,19 +16,20 @@ const SLIDE_PANELS = [
 ] as const;
 
 const HERO_SLIDES = [
-  {
-    img: '/assets/images/chiefs4.jpeg',
-    tag: 'The Face of Royalty',
-    heading: 'Where Tradition Wears a Living Crown',
-    sub: 'A new generation of Delta State chiefs — rooted in ancient authority, dressed in the full regalia of their forebears, leading communities into a dignified future.',
-    cta: { label: 'Our Story', href: '/about' },
-    cta2: { label: 'Contact Us', href: '/contact' },
-  },
+
   {
     img: '/assets/images/adestracc-img6.jpg',
     tag: 'Cultural Preservation',
     heading: 'Custodians of Delta State Heritage',
     sub: 'Uniting gazetted chiefs across all ethnic groups to preserve our rich ancestral legacy and drive sustainable grassroots development.',
+    cta: { label: 'Our Story', href: '/about' },
+    cta2: { label: 'Contact Us', href: '/contact' },
+  },
+    {
+    img: '/assets/images/chiefs4.jpeg',
+    tag: 'The Face of Royalty',
+    heading: 'Where Tradition Wears a Living Crown',
+    sub: 'A new generation of Delta State chiefs — rooted in ancient authority, dressed in the full regalia of their forebears, leading communities into a dignified future.',
     cta: { label: 'Our Story', href: '/about' },
     cta2: { label: 'Contact Us', href: '/contact' },
   },

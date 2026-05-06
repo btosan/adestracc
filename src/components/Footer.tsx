@@ -73,7 +73,7 @@ export default function Footer() {
             </h4>
             <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.65)', lineHeight: 2 }}>
               <div>📍 Delta State, Nigeria</div>
-              <div>📞 +234 800 000 0000</div>
+              <div>📞 +234 703 922 3978</div>
               <div>✉️ info@adestracc.com</div>
             </div>
             <div style={{ marginTop: '20px', display: 'flex', gap: '10px' }}>

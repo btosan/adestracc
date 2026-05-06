@@ -91,7 +91,7 @@ export default function ContactPage() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px' }}>
           {[
             { icon: '📍', label: 'Our Address', lines: ['ADESTRACC Secretariat', 'Asaba, Delta State', 'Nigeria'] },
-            { icon: '📞', label: 'Phone', lines: ['+234 800 000 0000', '+234 801 000 0000'] },
+            { icon: '📞', label: 'Phone', lines: ['+234 703 922 3978', '+234 801 000 0000'] },
             { icon: '✉️', label: 'Email', lines: ['info@adestracc.com', 'president@adestracc.com'] },
             { icon: '🕐', label: 'Office Hours', lines: ['Monday – Friday', '8:00 AM – 5:00 PM WAT'] },
           ].map((card, i) => (
@@ -161,7 +161,7 @@ export default function ContactPage() {
                     <label style={labelStyle}>Phone</label>
                     <input
                       name="phone" value={form.phone} onChange={handleChange}
-                      placeholder="+234 800 000 0000"
+                      placeholder="+234 703 922 3978"
                       style={inputStyle}
                     />
                   </div>
@@ -231,7 +231,7 @@ export default function ContactPage() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '48px' }}>
               <a
-                href="https://wa.me/2348000000000?text=Hello%20ADESTRACC"
+                href="https://wa.me/2347039223978?text=Hello%20ADESTRACC"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -250,12 +250,12 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <div style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-dark)', marginBottom: '2px' }}>WhatsApp Us</div>
-                  <div style={{ fontSize: '12px', color: 'var(--text-light)' }}>+234 800 000 0000 · Usually replies within hours</div>
+                  <div style={{ fontSize: '12px', color: 'var(--text-light)' }}>+234 703 922 3978 · Usually replies within hours</div>
                 </div>
               </a>
 
               <a
-                href="tel:+2348000000000"
+                href="tel:+2347039223978"
                 style={{
                   display: 'flex', alignItems: 'center', gap: '16px',
                   background: '#fff',
@@ -271,7 +271,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <div style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-dark)', marginBottom: '2px' }}>Call Directly</div>
-                  <div style={{ fontSize: '12px', color: 'var(--text-light)' }}>+234 800 000 0000 · Mon–Fri 8am–5pm</div>
+                  <div style={{ fontSize: '12px', color: 'var(--text-light)' }}>+234 703 922 3978 · Mon–Fri 8am–5pm</div>
                 </div>
               </a>
             </div>
