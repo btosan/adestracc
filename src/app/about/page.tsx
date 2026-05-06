@@ -1,7 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 /* eslint-disable react/no-unescaped-entities */
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 const CORE_VALUES = [
   { icon: '⚖️', title: 'Integrity', desc: 'We uphold the values and traditions passed down by our ancestors with honour and transparency.' },
@@ -11,19 +13,22 @@ const CORE_VALUES = [
 ];
 
 const LEADERSHIP = [
-  { name: 'HRH Chief [Name Placeholder]', title: 'President General', ethnic: 'Urhobo' },
-  { name: 'HRH Chief [Name Placeholder]', title: 'Vice President', ethnic: 'Itsekiri' },
-  { name: 'HRH Chief [Name Placeholder]', title: 'Secretary General', ethnic: 'Ijaw' },
-  { name: 'HRH Chief [Name Placeholder]', title: 'Financial Secretary', ethnic: 'Isoko' },
-  { name: 'HRH Chief [Name Placeholder]', title: 'PRO', ethnic: 'Ndokwa' },
-  { name: 'HRH Chief [Name Placeholder]', title: 'Legal Adviser', ethnic: 'Ukwuani' },
+  { name: 'Chief Olomu Azuka Hawkins', title: 'President General', image: '/assets/chiefs/hawkins.jpeg', phone: '+234 07039223978', email: 'hawkins4luv@yahoo.com' },
+  { name: 'Chief Egbodo O. Frank ', title: 'Pioneer Founding Member', image: '/assets/chiefs/egbodo.jpeg', phone: '+234 08038204080', email: '' },
+  { name: 'High Chief Ugo Asibelua JP KSP', title: 'Pioneer Founding Member', image: '/assets/chiefs/adestracc-img11.jpg', phone: '+234 08033118147', email: '' },
+  { name: 'Chief Paul A. Isamade', title: 'Pioneer Founding Member', image: '/assets/chiefs/pai.png', phone: '+234 8055559797', email: '' },
+  { name: 'Chief Edwin Othuke Asedere', title: 'Pioneer Founding Member', image: '/assets/chiefs/othuke.jpeg', phone: '+234 08052507358', email: '' },
+  { name: 'Chief Lucky E. Ojumah', title: 'Pioneer Founding Member', image: '/assets/chiefs/ojumah.jpeg', phone: '+234 07038664487', email: '' },
+  { name: 'Amb. Chief Andrew Abrah.', title: 'Pioneer Founding Member', image: '/assets/chiefs/abrah.jpeg', phone: '+234 08061629084', email: '' },
+  { name: 'Chief Chinedu Edem', title: 'Pioneer Founding Member', image: '/assets/chiefs/chinedu.jpeg', phone: '+234 08035500660', email: '' },
+  { name: 'Barr Faith Benedict O.', title: 'Legal Adviser', image: '/assets/chiefs/adestracc-img-bar.jpg', phone: '+234 08134704397', email: '' },
 ];
 
 export default function AboutPage() {
   return (
-    <div style={{ paddingTop: '60px' }}>
+    <div className='pt-[60px] overflow-hidden'>
 
-      {/* Page Hero — full-bleed photo */}
+      {/* Page Hero — legacy of unity */}
       <section style={{
         padding: '80px 24px 100px',
         position: 'relative',
@@ -35,16 +40,12 @@ export default function AboutPage() {
         alignItems: 'center',
         justifyContent: 'center',
       }}>
-        {/* Hero background photo */}
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1800&q=85"
           alt="Traditional chiefs ceremony"
-          style={{
-            position: 'absolute', inset: 0,
-            width: '100%', height: '100%',
-            objectFit: 'cover',
-            objectPosition: 'center 30%',
-          }}
+          fill
+          style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
+          priority
         />
         <div style={{
           position: 'absolute', inset: 0,
@@ -102,11 +103,12 @@ export default function AboutPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '72px', alignItems: 'center' }}>
             {/* Photo column */}
             <div style={{ position: 'relative' }}>
-              <div style={{ borderRadius: '4px', overflow: 'hidden', height: '500px' }}>
-                <img
-                  src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=800&q=80"
+              <div style={{ borderRadius: '4px', overflow: 'hidden', height: '600px', position: 'relative' }}>
+                <Image
+                  src="/assets/images/local-content18.jpeg"
                   alt="Delta State cultural gathering"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  fill
+                  style={{ objectFit: 'cover' }}
                 />
               </div>
               {/* Floating stat badge */}
@@ -118,12 +120,12 @@ export default function AboutPage() {
                 padding: '20px 28px',
                 textAlign: 'center',
               }}>
-                <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '42px', fontWeight: 700, color: 'var(--gold)', lineHeight: 1 }}>40+</div>
+                <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '42px', fontWeight: 700, color: 'var(--gold)', lineHeight: 1 }}>20+</div>
                 <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.7)', letterSpacing: '0.1em', textTransform: 'uppercase', marginTop: '4px' }}>Years of Service</div>
               </div>
             </div>
 
-            {/* Text column */}
+            {/* Text column   of service*/}
             <div style={{ paddingBottom: '24px' }}>
               <div style={{ textAlign: 'left', marginBottom: '40px' }}>
                 <div style={{ fontSize: '11px', letterSpacing: '0.25em', color: 'var(--gold)', textTransform: 'uppercase', marginBottom: '12px' }}>Our History</div>
@@ -136,7 +138,7 @@ export default function AboutPage() {
                   ADESTRACC was established as the foremost official body representing all gazetted chiefs across Delta State. Born from the recognition that traditional institutions are the bedrock of our communities, the association was founded on the conviction that a unified voice of chiefs could drive transformative change.
                 </p>
                 <p style={{ marginBottom: '20px' }}>
-                  Delta State is a mosaic of over 36 distinct ethnic groups — Urhobo, Itsekiri, Ijaw, Isoko, Ndokwa, Ukwuani, and many more — each with deep-rooted traditions and cultural expressions. ADESTRACC serves as the bridge that unites these diverse peoples under shared values of respect, collaboration, and progress.
+                  Delta State is a mosaic of over 36 distinct ethnic groups — Urhobo, Itsekiri, Ijaw, Isoko, Ukwuani, Ika, and Aniocha — each with deep-rooted traditions and cultural expressions. ADESTRACC serves as the bridge that unites these diverse peoples under shared values of respect, collaboration, and progress.
                 </p>
                 <p style={{ marginBottom: '20px' }}>
                   Over the years, the association has grown into a formidable institution partnering with federal agencies including FMACTCE, NDDC, NOA, and INEC.
@@ -175,11 +177,11 @@ export default function AboutPage() {
 
       {/* Leadership — dark section with photo backdrop */}
       <section style={{ position: 'relative', padding: '100px 24px', overflow: 'hidden' }}>
-        {/* Subtle background photo */}
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1612538498456-e861df91d474?w=1800&q=60"
           alt="Chiefs assembly backdrop"
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%' }}
+          fill
+          style={{ objectFit: 'cover', objectPosition: 'center 40%' }}
         />
         <div style={{ position: 'absolute', inset: 0, background: 'rgba(15,37,84,0.96)' }} />
         <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
@@ -187,30 +189,68 @@ export default function AboutPage() {
             <div style={{ fontSize: '11px', letterSpacing: '0.25em', color: 'var(--gold)', textTransform: 'uppercase', marginBottom: '12px' }}>Governance</div>
             <h2 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(32px, 4vw, 48px)', color: '#fff', fontWeight: 700 }}>Executive Leadership</h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
             {LEADERSHIP.map((l, i) => (
               <div key={i} style={{
                 background: 'rgba(255,255,255,0.06)',
                 border: '1px solid rgba(201,153,58,0.2)',
                 borderTop: '3px solid var(--gold)',
-                padding: '28px 24px',
+                padding: '32px 28px',
                 borderRadius: '2px',
               }}>
+                {/* Member photo */}
                 <div style={{
-                  width: '56px', height: '56px',
-                  background: 'linear-gradient(135deg, var(--gold), var(--gold-light))',
+                  width: '120px',
+                  height: '120px',
                   borderRadius: '50%',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontFamily: 'Cormorant Garamond, serif',
-                  fontWeight: 700, fontSize: '22px',
-                  color: 'var(--royal-blue-deep)',
-                  marginBottom: '16px',
+                  overflow: 'hidden',
+                  position: 'relative',
+                  margin: '0 auto 20px',
+                  border: '0.01px solid var(--gold)',
+                  boxShadow: '0 4px 16px rgba(0,0,0,0.3)',
                 }}>
-                  {l.name.split(' ')[2]?.[0] || 'C'}
+                  <Image
+                    src={l.image}
+                    alt={l.name}
+                    fill
+                    style={{ objectFit: 'cover' }}
+                  />
                 </div>
-                <h4 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '18px', color: '#fff', fontWeight: 600, marginBottom: '4px' }}>{l.name}</h4>
-                <div style={{ fontSize: '12px', color: 'var(--gold)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '8px' }}>{l.title}</div>
-                <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.45)' }}>{l.ethnic} Ethnic Group</div>
+
+                <h4 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '18px', color: '#fff', fontWeight: 600, marginBottom: '4px', textAlign: 'center' }}>{l.name}</h4>
+                <div style={{ fontSize: '12px', color: 'var(--gold)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '20px', textAlign: 'center' }}>{l.title}</div>
+
+                {/* Divider */}
+                <div style={{ borderTop: '1px solid rgba(201,153,58,0.15)', paddingTop: '16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  <a
+                    href={`tel:${l.phone}`}
+                    style={{
+                      display: 'flex', alignItems: 'center', gap: '8px',
+                      color: 'rgba(255,255,255,0.65)', fontSize: '12px',
+                      textDecoration: 'none',
+                      transition: 'color 0.2s',
+                    }}
+                    onMouseEnter={e => (e.currentTarget.style.color = 'var(--gold)')}
+                    onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.65)')}
+                  >
+                    <span style={{ fontSize: '14px' }}>📞</span>
+                    {l.phone}
+                  </a>
+                  <a
+                    href={`mailto:${l.email}`}
+                    style={{
+                      display: 'flex', alignItems: 'center', gap: '8px',
+                      color: 'rgba(255,255,255,0.65)', fontSize: '12px',
+                      textDecoration: 'none',
+                      transition: 'color 0.2s',
+                    }}
+                    onMouseEnter={e => (e.currentTarget.style.color = 'var(--gold)')}
+                    onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.65)')}
+                  >
+                    <span style={{ fontSize: '14px' }}>✉️</span>
+                    {l.email}
+                  </a>
+                </div>
               </div>
             ))}
           </div>

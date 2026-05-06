@@ -3,6 +3,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X, User, LogOut, LayoutDashboard, ChevronDown } from 'lucide-react';
 import { useSession, signOut } from 'next-auth/react';
@@ -95,7 +96,8 @@ export default function Navbar() {
       <header style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
         transition: 'all 0.4s ease',
-        backgroundColor: isSolid ? 'rgba(27, 58, 122, 0.99)' : 'transparent',
+        // backgroundColor: isSolid ? 'rgba(27, 58, 122, 0.99)' : 'transparent',
+        backgroundColor: isSolid ? 'rgba(27, 58, 122, 0.99)' : 'rgba(27, 58, 122, 0.99)',
         backdropFilter: isSolid ? 'blur(12px)' : 'none',
         borderBottom: isSolid ? '1px solid rgba(201,153,58,0.3)' : '1px solid transparent',
         padding: isSolid ? '10px 0' : '20px 0',
@@ -104,13 +106,21 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <div style={{
-              width: '42px', height: '42px',
-              background: 'linear-gradient(135deg, #C9993A 0%, #E8B84B 100%)',
-              borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center',
+            <div 
+              style={{
               fontFamily: 'Cormorant Garamond, serif', fontWeight: 700, fontSize: '18px',
               color: '#0F2447', flexShrink: 0,
-            }}>A</div>
+            }}
+            className='bg-black/20 text-[#0F2447] h-10.5 w-10.5 p-2 rounded-full flex items-center justify-center'
+            >
+              <Image 
+                src="/assets/icons/logo.png" 
+                alt="ADESTRACC Logo" 
+                height={24}
+                width={24}
+                className='h-6 md:h-7 lg:h-8 w-auto'
+              />
+            </div>
             <div>
               <div style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 700, fontSize: '15px', color: '#fff', lineHeight: 1.1 }}>ADESTRACC</div>
               <div style={{ fontSize: '9px', color: 'rgba(201,153,58,0.9)', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Delta State Chiefs</div>

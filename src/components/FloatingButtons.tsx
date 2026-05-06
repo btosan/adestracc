@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 export default function FloatingButtons() {
   const [hovered, setHovered] = useState<string | null>(null);
-  const PHONE = '+2348000000000';
+  const PHONE = '+2347039223978';
   const WHATSAPP_MSG = encodeURIComponent('Hello ADESTRACC, I would like to enquire about...');
 
   return (

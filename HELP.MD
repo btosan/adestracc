@@ -48,3 +48,8 @@ npx prisma db push
 <!-- GENERATE NEXT_AUTH -->
 openssl rand -base64 32
 # You do it in bash
+
+<!-- get images -->
+find public/assets/images -type f | sort
+
+find public/assets/icons -type f | sort
