@@ -5,9 +5,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect, useCallback, useRef } from 'react';
 
-// ─── DATA  videos ─────────────────────────────────────────────────────────────────────
+// ─── DATA ─────────────────────────────────────────────────────────────────────
 
 const SLIDE_PANELS = [
+  { bg: '#0F2554' },
+  { bg: '#1B3A7A' },
   { bg: '#0F2554' },
   { bg: '#1B3A7A' },
   { bg: '#0F2554' },
@@ -16,12 +18,11 @@ const SLIDE_PANELS = [
 ] as const;
 
 const HERO_SLIDES = [
-
-    {
+  {
     img: '/assets/images/chief-egbodo.jpeg',
-    tag: 'Cultural Preservation',
-    heading: 'Custodians of Delta State Heritage',
-    sub: 'Uniting gazetted chiefs across all ethnic groups to preserve our rich ancestral legacy and drive sustainable grassroots development.',
+    tag: 'Royal Authority',
+    heading: 'The Face That Commands Respect',
+    sub: 'Chief Egbodo embodies the dignity and gravitas of Delta State traditional leadership — a living symbol of ancestral authority, guiding his people with wisdom and enduring pride.',
     cta: { label: 'Our Story', href: '/about' },
     cta2: { label: 'Contact Us', href: '/contact' },
   },
@@ -29,23 +30,23 @@ const HERO_SLIDES = [
     img: '/assets/images/chiefs-group.jpeg',
     tag: 'Cultural Preservation',
     heading: 'Custodians of Delta State Heritage',
-    sub: 'Uniting gazetted chiefs across all ethnic groups to preserve our rich ancestral legacy and drive sustainable grassroots development.',
+    sub: 'Uniting gazetted chiefs across all ethnic groups to preserve our rich ancestral legacy and drive sustainable grassroots development across every community in Delta State.',
     cta: { label: 'Our Story', href: '/about' },
     cta2: { label: 'Contact Us', href: '/contact' },
   },
-    {
+  {
     img: '/assets/images/adestracc-img9.jpg',
-    tag: 'Cultural Preservation',
-    heading: 'Custodians of Delta State Heritage',
-    sub: 'Uniting gazetted chiefs across all ethnic groups to preserve our rich ancestral legacy and drive sustainable grassroots development.',
+    tag: 'Tradition & Governance',
+    heading: 'Where Ancient Law Meets Modern Leadership',
+    sub: 'ADESTRACC bridges centuries of traditional governance with the demands of today — ensuring our chiefs remain relevant, respected, and empowered to serve their communities.',
     cta: { label: 'Our Story', href: '/about' },
     cta2: { label: 'Contact Us', href: '/contact' },
   },
-    {
+  {
     img: '/assets/images/chiefs4.jpeg',
     tag: 'The Face of Royalty',
     heading: 'Where Tradition Wears a Living Crown',
-    sub: 'A new generation of Delta State chiefs — rooted in ancient authority, dressed in the full regalia of their forebears, leading communities into a dignified future.',
+    sub: 'A new generation of Delta State chiefs — rooted in ancient authority, dressed in the full regalia of their forebears, leading communities into a dignified and prosperous future.',
     cta: { label: 'Our Story', href: '/about' },
     cta2: { label: 'Contact Us', href: '/contact' },
   },
@@ -53,7 +54,7 @@ const HERO_SLIDES = [
     img: '/assets/images/adestracc-img-chiefs.jpg',
     tag: 'Unity in Diversity',
     heading: '7 Ethnic Groups, One Powerful Voice',
-    sub: "ADESTRACC stands as the official body bridging Delta State's diverse communities through shared values, culture, and tradition.",
+    sub: "ADESTRACC stands as the official body bridging Delta State's diverse communities through shared values, culture, and tradition — forging unity where division once stood.",
     cta: { label: 'Our Leadership', href: '/about' },
     cta2: { label: 'Join Us', href: '/contact' },
   },
@@ -61,7 +62,7 @@ const HERO_SLIDES = [
     img: '/assets/images/local-content1.jpeg',
     tag: 'Tourism & Creativity',
     heading: 'Showcasing Delta State to the World',
-    sub: "From festivals to heritage tourism, we champion Delta State's creative economy and cultural identity on the global stage.",
+    sub: "From vibrant festivals to heritage tourism trails, we champion Delta State's creative economy and cultural identity — putting our communities firmly on the global stage.",
     cta: { label: 'Explore More', href: '/our-impact' },
     cta2: { label: 'Gallery', href: '/gallery' },
   },
@@ -69,7 +70,7 @@ const HERO_SLIDES = [
     img: '/assets/images/adestracc-img3.jpg',
     tag: 'Federal Partnerships',
     heading: "Backed by Nigeria's Highest Institutions",
-    sub: "Working hand-in-hand with FMACTCE, NDDC, NOA, and INEC to deliver real change at the grassroots level across all 25 LGAs.",
+    sub: "Working hand-in-hand with FMACTCE, NDDC, NOA, and INEC to deliver real, measurable change at the grassroots level across all 25 LGAs in Delta State.",
     cta: { label: 'Our Partners', href: '/about' },
     cta2: { label: 'Our Impact', href: '/our-impact' },
   },
@@ -183,17 +184,17 @@ const VIDEO_ITEMS = [
   },
   {
     src: '/assets/videos/nddc-partnership.mp4',
-    title: 'NDDC  In Partnership With ADESTRACC',
+    title: 'NDDC In Partnership With ADESTRACC',
     views: '3.1K',
     poster: '/assets/videos/nndc-partnership.png',
   },
-    {
+  {
     src: '/assets/videos/local-content.mp4',
     title: 'ADESTRACC Local Content Implementation',
     views: '2.4K',
     poster: '/assets/videos/local-content-dev4.png',
   },
-    {
+  {
     src: '/assets/videos/localcontent2.mp4',
     title: 'ADESTRACC Local Content Development',
     views: '2.4K',
@@ -225,8 +226,9 @@ function HeroSlider() {
     <section>
 
       {/* ══ DESKTOP ══ */}
-      <div className="hidden md:flex" style={{ minHeight: '90vh' }}>
+      <div className="hidden md:flex" style={{ minHeight: '95vh' }}>
 
+        {/* Left panel */}
         <div
           className="flex flex-col justify-center relative"
           style={{
@@ -247,7 +249,7 @@ function HeroSlider() {
             background: 'linear-gradient(180deg, transparent, #C9993A 35%, #C9993A 65%, transparent)',
           }} />
 
-          {/* ── Association name — permanent, top of panel ── */}
+          {/* Association name */}
           <div style={{
             marginBottom: '32px',
             paddingBottom: '22px',
@@ -382,15 +384,69 @@ function HeroSlider() {
           </div>
         </div>
 
-        {/* Right image panel */}
-        <div className="flex-1 relative overflow-hidden">
+        {/* Right image panel — hover reveals full image via object-contain + bg color */}
+        <div className="flex-1 relative overflow-hidden hero-right-panel" style={{ minHeight: '95vh' }}>
           {HERO_SLIDES.map((s, i) => (
-            <Image key={i} src={s.img} alt={s.heading} fill priority={i === 0} style={{
-              objectFit: 'cover', objectPosition: 'center center',
-              opacity: i === current ? 1 : 0,
-              transition: 'opacity 0.6s ease',
-            }} />
+            <div
+              key={i}
+              className="hero-img-wrapper"
+              style={{
+                position: 'absolute',
+                inset: 0,
+                opacity: i === current ? 1 : 0,
+                transition: 'opacity 0.6s ease',
+                backgroundColor: SLIDE_PANELS[i % SLIDE_PANELS.length].bg,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                overflow: 'hidden',
+              }}
+            >
+              {/* Cover layer — shown by default, hidden on hover */}
+              <Image
+                src={s.img}
+                alt={s.heading}
+                fill
+                priority={i === 0}
+                className="hero-slide-cover"
+                style={{
+                  objectFit: 'cover',
+                  objectPosition: 'center center',
+                  transition: 'opacity 0.35s ease',
+                }}
+              />
+              {/* Contain layer — hidden by default, shown on hover. Uses next/image with known dimensions via fill+contain trick */}
+              <div
+                className="hero-slide-contain-wrap"
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  opacity: 0,
+                  transition: 'opacity 0.35s ease',
+                  zIndex: 2,
+                }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={s.img}
+                  alt={s.heading}
+                  style={{
+                    maxWidth: '100%',
+                    maxHeight: '100%',
+                    width: 'auto',
+                    height: 'auto',
+                    objectFit: 'contain',
+                    display: 'block',
+                  }}
+                />
+              </div>
+            </div>
           ))}
+
+          {/* Slide counter badge */}
           <div style={{
             position: 'absolute', bottom: '24px', right: '24px', zIndex: 10,
             display: 'flex', flexDirection: 'column', alignItems: 'center',
@@ -406,6 +462,16 @@ function HeroSlider() {
               / {String(HERO_SLIDES.length).padStart(2, '0')}
             </span>
           </div>
+
+          {/* Hover styles */}
+          <style>{`
+            .hero-img-wrapper:hover .hero-slide-cover {
+              opacity: 0 !important;
+            }
+            .hero-img-wrapper:hover .hero-slide-contain-wrap {
+              opacity: 1 !important;
+            }
+          `}</style>
         </div>
       </div>
 
@@ -500,7 +566,7 @@ function HeroSlider() {
             </div>
           </div>
         </div>
-        <div style={{ position: 'relative', width: '100%', height: '260px' }}>
+        <div style={{ position: 'relative', width: '100%', height: '90vh' }}>
           {HERO_SLIDES.map((s, i) => (
             <Image key={i} src={s.img} alt={s.heading} fill priority={i === 0} style={{
               objectFit: 'cover', objectPosition: 'center top',
